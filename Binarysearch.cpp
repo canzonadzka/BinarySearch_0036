@@ -14,28 +14,26 @@ void input()
 
         if (nPanjang <= 10)
         {
-                break;
-            }
-            else
-            {
-                cout << "\n[!] Jumlah elemen tidak boleh lebih dari 10. Silakan coba lagi.\n";
-            }
+            break;
         }
-
-        cout << "\n============================================\n";
-        cout << "          Masukkan Elemen Array             \n";
-        cout << "============================================\n";
-
-        for (int i = 0; i< nPanjang; i++)
+        else
         {
-            cout << "Data ke-" << (i + 1) << " = ";
-            cin >> element[i];
+            cout << "\n[!] Jumlah elemen tidak boleh lebih dari 10. Silakan coba lagi.\n";
         }
-    
-        
     }
 
-    void bubbleSortArray()
+    cout << "\n============================================\n";
+    cout << "          Masukkan Elemen Array             \n";
+    cout << "============================================\n";
+
+    for (int i = 0; i < nPanjang; i++)
+    {
+        cout << "Data ke-" << (i + 1) << " = ";
+        cin >> element[i];
+    }
+}
+
+void bubbleSortArray()
 {
     int pass = 1;
     do
@@ -88,30 +86,38 @@ void binarySearch()
         do
         {
             int mid = (low + high) / 2;
-            cout << "Masukkan elemen yang ingin dicari: ";
-        cin >> x;
-
-        int low = 0;
-        int high = nPanjang - 1;
-
-        do
-        {
-            int mid = (low + high) / 2;
 
             if (element[mid] == x)
             {
                 cout << "\n[✓] Elemen " << x << " ditemukan pada indeks " << mid << "\n";
-                return;
+                break;
             }
-
-            if (x < element[mid])
+            else if (x < element[mid])
             {
                 high = mid - 1;
             }
-
-            if (x > element[mid])
+            else
             {
                 low = mid + 1;
             }
 
         } while (low <= high);
+
+        if (low > high)
+        {
+            cout << "\n[x] Elemen " << x << " tidak ditemukan dalam array.\n";
+        }
+
+        cout << "\nIngin mencari lagi? (y/n): ";
+        cin >> ulang;
+
+    } while (ulang == 'y' || ulang == 'Y');
+}
+
+int main()
+{
+    input();
+    bubbleSortArray();
+    display();
+    binarySearch();
+}
