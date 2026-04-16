@@ -34,7 +34,7 @@ void input()
     
         
     }
-    
+
     void bubbleSortArray()
 {
     int pass = 1;
@@ -52,3 +52,5 @@ void input()
         pass++;
     } while (pass <= nPanjang - 1);
 }
+
+void display()
