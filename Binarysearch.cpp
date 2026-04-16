@@ -32,7 +32,10 @@ void input()
             cin >> element[i];
         }
     
-        void bubbleSortArray()
+        
+    }
+    
+    void bubbleSortArray()
 {
     int pass = 1;
     do
@@ -45,4 +48,7 @@ void input()
                 element[j] = element[j + 1];
                 element[j + 1] = temp;
             }
-       
+        }
+        pass++;
+    } while (pass <= nPanjang - 1);
+}
